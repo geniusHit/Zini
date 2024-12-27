@@ -1,0 +1,52 @@
+.carousel-btn{
+    width: 80px;
+    height: 40vh;
+    border:none;
+    outline: none;
+}
+.carousel-btn:focus{
+    border:none;
+    outline: none;
+    box-shadow: none;
+}
+
+.carousel-btn2{
+    width: 80px;
+    height: 40vh;
+    border:none;
+    outline: none;
+}
+.carousel-btn2:focus{
+    border:none;
+    outline: none;
+    box-shadow: none;
+}
+.active-border:focus{
+    border:2px solid #00ccff;
+    outline: none;
+    box-shadow: none;
+}
+
+.hover-underline:hover{
+    text-decoration: underline;
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 15px solid white;
+}
+
+.account:hover + .accountMenu{
+    display: block;
+}
+
+@media (max-width:1530px)
+{
+    .box{
+        grid-template-columns: 30% 30% 30% !important;
+        margin:"0px" !important;
+    }
+}
