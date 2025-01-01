@@ -85,7 +85,7 @@ const ProductDetails = () => {
         }
         myfun()
     }, [cart])
-
+ 
     const changeImg = (i) => {
         bigImg.current.src = i
     }
