@@ -10,7 +10,12 @@ require("./dbconnection/connection");
 const signupModel = require("./models/signupSchema");
 const router = require("./router/route");
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "https://zini-nine.vercel.app",
+        "http://localhost:5173"
+    ]
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
