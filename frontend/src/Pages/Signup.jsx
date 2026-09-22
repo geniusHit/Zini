@@ -62,7 +62,7 @@ const Signup = () => {
       <Navbar />
 
       <div className='mx-auto' style={{ width: "23%" }}>
-        <div className='text-center' style={{}}><span className='fs-2 fw-bold'>Zini</span>.in</div>
+        <div className='text-center' style={{}}><span className='fs-2 fw-bold'>EComm</span>.in</div>
 
         <form onSubmit={handleSubmit} className='border rounded-3 border-secondary-emphasis p-3 mt-3' style={{ width: "100%" }}>
           <span className='fs-4 fw-semibold'>Create Account</span>
@@ -152,7 +152,7 @@ const Signup = () => {
           <NavLink className="text-decoration-none">Help</NavLink>
         </div>
 
-        <div className='text-secondary mt-2'>© 1996-2024, Zini.com, Inc. or its affiliates</div>
+        <div className='text-secondary mt-2'>© 1996-2024, EComm.com, Inc. or its affiliates</div>
       </div>
     </div>
   )

@@ -29,7 +29,6 @@ exports.signin=async (req, res)=>{
     res.send(result)
 }
 
-// Route to upload product data
 exports.uploadProduct=async (req, res) => {
     try {
         const obj = {
@@ -46,7 +45,8 @@ exports.uploadProduct=async (req, res) => {
             details: req.body.details,
         };
 
-        const result = await new productsModel(obj).save();
+        const result = await new productsModel(req.body).save();
+
         res.status(201).json({ message: "Product uploaded successfully", result });
     } catch (error) {
         console.error(error);
@@ -152,8 +152,8 @@ exports.sendOTP = async (req, res)=>{
     const receiver={
         from:"rohitthakur792002@gmail.com",
         to:`${email}`,
-        subject:"Zini Signup OTP",
-        text:`Your Zini Signup OTP is ${otp}`
+        subject:"EComm Signup OTP",
+        text:`Your EComm Signup OTP is ${otp}`
     }
 
     auth.sendMail(receiver, (error, emailResponse)=>{

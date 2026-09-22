@@ -101,15 +101,15 @@ const Nav2 = () => {
 
               <p className='fw-semibold' style={{cursor:"pointer"}} onClick={()=>searchProducts("women's,fashion")}>women's fashion</p>
 
-              <div class="accordion-item">
+              <div className="accordion-item">
 
-              <h2 class="accordion-header">
-                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h2 className="accordion-header">
+                <button className="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   See More <FaChevronDown className='ms-2'/>
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body py-3">
+              <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div className="accordion-body py-3">
                   <p className='fw-semibold' style={{cursor:"pointer"}} onClick={()=>searchProducts("Home,Kitchen,Pets")}>Home, Kitchen, Pets</p>
 
                   <p className='fw-semibold' style={{cursor:"pointer"}} onClick={()=>searchProducts("Beauty,Health,Grocery")}>Beauty, Health, Grocery</p>

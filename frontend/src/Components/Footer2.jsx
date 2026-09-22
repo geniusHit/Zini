@@ -11,7 +11,7 @@ const Footer2 = () => {
         </div>
 
         <div style={{}} className='hover-underline d-flex flex-column'>
-            <span className='fw-bold'>Zini web services</span>
+            <span className='fw-bold'>EComm web services</span>
             <span>scalable, cloud</span>
             <span>computing services</span>
         </div>
@@ -35,7 +35,7 @@ const Footer2 = () => {
         </div>
 
         <div style={{}} className='hover-underline d-flex flex-column'>
-            <span className='fw-bold'>Zini business</span>
+            <span className='fw-bold'>EComm business</span>
             <span>everything for</span>
             <span>your business</span>
         </div>
@@ -47,7 +47,7 @@ const Footer2 = () => {
         </div>
 
         <div style={{}} className='hover-underline d-flex flex-column'>
-            <span className='fw-bold'>Zini prime music</span>
+            <span className='fw-bold'>EComm prime music</span>
             <span>100 million songs, ad-free</span>
             <span>over 15 million podcast episodes</span>
         </div>
@@ -61,7 +61,7 @@ const Footer2 = () => {
         </div>
 
         <div>
-            © 1996-2024, Zini.com, Inc. or its affiliates
+            © 1996-2024, EComm.com, Inc. or its affiliates
         </div>
       </div>
     </div>

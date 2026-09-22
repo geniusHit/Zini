@@ -130,7 +130,7 @@ const Navbar = (user) => {
             <option value="gift cards">gift cards</option>
             <option value="grocery & gourmet foods">grocery & gourmet foods</option>
           </select>
-          <input type='text' className='py-2 navSearch' onChange={searchChange} style={{height:"40px", width:"40vw"}} placeholder='Search Zini.in'></input>
+          <input type='text' className='py-2 navSearch' onChange={searchChange} style={{height:"40px", width:"40vw"}} placeholder='Search EComm.in'></input>
           <button className='px-3 rounded-end-2 d-flex justify-content-center align-items-center' style={{backgroundColor:"#fcce51", height:"40px", border:"none"}} onClick={showSearch}><IoSearch className='fs-4'/></button>
         </div>
 
@@ -141,7 +141,7 @@ const Navbar = (user) => {
           {
             visibility==true &&
             <div className='bg-light d-flex flex-column p-2' style={{position:"absolute", marginLeft:"0px", marginTop:"10px"}}>
-              <div class="triangle-up" ref={accountMenu} style={{position:"absolute", marginTop:"-17px", zIndex:"4"}}></div>
+              <div className="triangle-up" ref={accountMenu} style={{position:"absolute", marginTop:"-17px", zIndex:"4"}}></div>
 
               <h6 className='fw-bold text-black'>Your Account</h6>
 

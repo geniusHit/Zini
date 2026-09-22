@@ -65,8 +65,8 @@ const AddProducts = () => {
       
       <div className='mx-auto p-4' style={{width:"30%"}}>
         <form onSubmit={handleSubmit} ref={myform}>
-            <div class="mb-3 d-flex flex-column gap-3">
-                <input multiple class="form-control" className='form-control' onChange={handleChange} name='img' style={{height:"40px"}} type="file" id="formFile"></input>
+            <div className="mb-3 d-flex flex-column gap-3">
+                <input multiple className="form-control" onChange={handleChange} name='img' style={{height:"40px"}} type="file" id="formFile"></input>
 
                 <input type='text' className='form-control ' onChange={handleChange} style={{height:"40px"}} placeholder='Title' name='title'></input>
 

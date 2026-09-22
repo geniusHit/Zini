@@ -17,7 +17,7 @@ const App = () => {
           <img src={logo} className="card-img-top" alt=""></img>
           <div className="card-body">
             <h5 className="card-title">Manage About</h5>
-            <p className="card-text">Zini in India has partnered with several NGOs across the country to donate hygiene aid kits, personal protective equipment kits and groceries in support of healthcare workers and communities most affected by COVID-19.</p>
+            <p className="card-text">EComm in India has partnered with several NGOs across the country to donate hygiene aid kits, personal protective equipment kits and groceries in support of healthcare workers and communities most affected by COVID-19.</p>
             <a href="#" className="btn btn-primary">Continue</a>
           </div>
         </div>

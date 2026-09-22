@@ -36,7 +36,7 @@ const AdminSignin = () => {
     <div style={{minWidth:"1350px"}}>
       <Navbar/>
       <div className='mx-auto' style={{width:"23%"}}>
-        <div className='text-center' style={{}}><span className='fs-2 fw-bold'>Zini</span>.in</div>
+        <div className='text-center' style={{}}><span className='fs-2 fw-bold'>EComm</span>.in</div>
 
         <form className='border rounded-3 border-secondary-emphasis p-3 mt-3' style={{width:"100%"}} onSubmit={handleSubmit}>
             <span className='fs-4 fw-semibold'>Admin Sign In</span>

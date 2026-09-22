@@ -10,12 +10,7 @@ require("./dbconnection/connection");
 const signupModel = require("./models/signupSchema");
 const router = require("./router/route");
 
-app.use(cors({
-    origin: [
-        "https://zini-nine.vercel.app",
-        "http://localhost:5173"
-    ]
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,8 +31,8 @@ app.get("/signin/:mobile", async (req, res) => {
     }
 });
 
-module.exports = app;
+// module.exports = app;
 
-// app.listen(port, () => {
-//     console.log(`Server is running on port: ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
