@@ -7,6 +7,11 @@ import { FaChevronDown } from "react-icons/fa";
 import Axios from 'axios'
 
 const Nav2 = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const sideMenu=useRef()
   const close=()=>{
     sideMenu.current.style.left="-400px"
@@ -24,7 +29,7 @@ const Nav2 = () => {
   const showSearch=async (e)=>{
     setSearch(e.currentTarget.id)
     console.log("e.currentTarget.id = ", e.currentTarget.id)
-    const products=await Axios.get(`http://localhost:8011/showsearch/${e.currentTarget.id}`)
+    const products=await Axios.get(`${API_URL}/showsearch/${e.currentTarget.id}`)
     setData(products.data)
   }
   const link=useNavigate()
@@ -39,7 +44,7 @@ const Nav2 = () => {
   const [products2, setProducts2]=useState()
   const [search2, setSearch2]=useState()
   const searchProducts=async (search)=>{
-    const result=await Axios.get(`http://localhost:8011/showsearch/${search}`)
+    const result=await Axios.get(`${API_URL}/showsearch/${search}`)
     setSearch2(search)
     setProducts2(result.data)
   }

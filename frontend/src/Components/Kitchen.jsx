@@ -6,6 +6,11 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import Axios from 'axios'
 
 const Kitchen = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const slider = useRef()
   const left = useRef()
   const right = useRef()
@@ -54,7 +59,7 @@ const Kitchen = () => {
   const showProducts = async (p) => {
     let s = p.replaceAll(" ", ",")
     setSearch(s)
-    const products = await Axios.get(`http://localhost:8011/showsearch/${s}`)
+    const products = await Axios.get(`${API_URL}/showsearch/${s}`)
     setData(products.data)
   }
   useEffect(() => {
@@ -76,7 +81,7 @@ const Kitchen = () => {
             {
               KitchenApi.map((k, index) => {
                 return (
-                  <div className="float-start" key={index} onClick={()=>showProducts("kitchen")}>
+                  <div className="float-start" key={index} onClick={() => showProducts("kitchen")}>
                     <img src={k} width="150px" height="200px"></img>
                   </div>
                 )

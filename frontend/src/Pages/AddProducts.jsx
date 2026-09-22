@@ -3,6 +3,11 @@ import Navbar from '../Components/Navbar'
 import Axios from 'axios'
 
 const AddProducts = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const myform=useRef()
 
   const [productData, setProductData]=useState({
@@ -43,7 +48,7 @@ const AddProducts = () => {
     e.preventDefault()
 
     try{
-      const result=await Axios.post("http://localhost:8011/uploadproduct", productData)
+      const result=await Axios.post(`${API_URL}/uploadproduct`, productData)
       alert("Product added")
     }
     catch(error)

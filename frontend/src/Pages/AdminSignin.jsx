@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 
 const AdminSignin = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const [email, setEmail]=useState(null)
   const [password, setPassword]=useState(null)
   const link=useNavigate()
@@ -12,7 +17,7 @@ const AdminSignin = () => {
     e.preventDefault()
 
     try{
-      const result = await Axios.get(`http://localhost:8011/adminsignin/`, {email})
+      const result = await Axios.get(`${API_URL}/adminsignin/`, {email})
       if(result.data.password==password)
       {
         link("/adminpage")

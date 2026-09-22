@@ -5,6 +5,11 @@ import Axios from 'axios'
 import Navbar from '../Components/Navbar';
 
 const Signup = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const [username, setName] = useState(null)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
@@ -23,7 +28,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const sendotp = await Axios.get(`http://localhost:8011/sendotp/${email}`)
+    const sendotp = await Axios.get(`${API_URL}/sendotp/${email}`)
     // navigate("/checkotp", {state:{...location.state, name:username, email:email, password:password}})
     otpinput.current.removeAttribute("disabled")
     verifybtn.current.style.display = "none"
@@ -38,16 +43,16 @@ const Signup = () => {
     console.log("userOtp = ", parseInt(userOtp))
     console.log("realOtp = ", parseInt(realOtp))
     if (parseInt(userOtp) == parseInt(realOtp)) {
-      await Axios.post(`http://localhost:8011/signup`, { username: username, email: email, password: password })
+      await Axios.post(`${API_URL}/signup`, { username: username, email: email, password: password })
         .then(() => {
           alert("Signup successful")
-          navigate("/", {state:{...location.state, name:username, email:email}})
+          navigate("/", { state: { ...location.state, name: username, email: email } })
         })
         .catch((error) => {
           alert("Couldn't signup ", error)
         })
     }
-    else{
+    else {
       alert("Wrong OTP")
     }
   }
@@ -111,7 +116,7 @@ const Signup = () => {
 
           <input type='submit' ref={verifybtn} className='bg-warning w-100 btn mt-4 shadow-sm' style={{ fontSize: "10pt" }} value="Verify email"></input>
 
-          <input type='button' ref={signupbtn} onClick={signup} className='bg-warning w-100 btn mt-4 shadow-sm' style={{ fontSize: "10pt", display:"none" }} value="Signup"></input>
+          <input type='button' ref={signupbtn} onClick={signup} className='bg-warning w-100 btn mt-4 shadow-sm' style={{ fontSize: "10pt", display: "none" }} value="Signup"></input>
 
           <hr
             className="my-4"

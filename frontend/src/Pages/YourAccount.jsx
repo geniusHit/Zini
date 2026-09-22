@@ -4,6 +4,11 @@ import { useLocation } from 'react-router-dom'
 import Axios from 'axios'
 
 const YourAccount = () => {
+  const API_URL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:8011"
+          : "https://zini-backend.vercel.app";
+
   const location=useLocation()
 
   const newP=useRef()
@@ -25,14 +30,14 @@ const YourAccount = () => {
   const continuePass=async (e)=>{
     e.preventDefault()
     console.log("oldPass = ", oldPass)
-    const getPass=await Axios.get(`http://localhost:8011/getpassword/${location.state.mobile}`)
+    const getPass=await Axios.get(`${API_URL}/getpassword/${location.state.mobile}`)
     if(oldPass==getPass.data.password)
     {
         newP.current.style.display="block"
     }
     if(newPass!=undefined)
     {
-        await Axios.patch(`http://localhost:8011/updatepassword/${location.state.mobile}`, {password:newPass})
+        await Axios.patch(`${API_URL}/updatepassword/${location.state.mobile}`, {password:newPass})
         alert("Password updated")
     }
   }

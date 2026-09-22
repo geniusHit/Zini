@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import Axios from 'axios'
 
 const ProductDetails = () => {
+    const API_URL =
+        window.location.hostname === "localhost"
+            ? "http://localhost:8011"
+            : "https://zini-backend.vercel.app";
+
     const location = useLocation()
     const bigImg = useRef()
 
@@ -67,11 +72,11 @@ const ProductDetails = () => {
     const [cart, setCart] = useState()
     const addToCart = async (id) => {
         if (location && location.state.name) {
-            setCart({ email:location.state.email, product_id: id })
+            setCart({ email: location.state.email, product_id: id })
             console.log("cart = ", cart)
         }
         else {
-            link("/signin", {state: {...location.state, product_id:id}})
+            link("/signin", { state: { ...location.state, product_id: id } })
         }
     }
 
@@ -79,13 +84,13 @@ const ProductDetails = () => {
         const myfun = async () => {
             if (cart != undefined) {
                 console.log("Cart = ", cart)
-                await Axios.post("http://localhost:8011/addtocart", cart)
+                await Axios.post(`${API_URL}/addtocart`, cart)
                 alert("Product added to cart")
             }
         }
         myfun()
     }, [cart])
- 
+
     const changeImg = (i) => {
         bigImg.current.src = i
     }
@@ -108,7 +113,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const b = async () => {
             if (buyData.userPhone != null) {
-                await Axios.post(`http://localhost:8011/buy`, buyData)
+                await Axios.post(`${API_URL}/buy`, buyData)
                 alert("Request sent for buy.")
             }
             else if (buyData.userPhone == null && buyData.productsId != null) {

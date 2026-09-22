@@ -5,6 +5,11 @@ import { useLocation } from 'react-router-dom';
 import Axios from 'axios';
 
 const Cart = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const [lState, setLState] = useState();
   const location = useLocation();
   const [cartData, setCartData] = useState([]);
@@ -26,14 +31,14 @@ const Cart = () => {
         if (lState?.email) {
           try {
             const result = await Axios.get(
-              `http://localhost:8011/getcartinfo/${lState.email}`
+              `${API_URL}/getcartinfo/${lState.email}`
             );
             setCartData(result.data);
             setBuyProducts({email:location.state.email, userName:location.state.name})
 
             // Fetch product details for all items in the cart
             const productPromises = result.data.map((item) =>
-              Axios.get(`http://localhost:8011/getproduct/${item.product_id}`)
+              Axios.get(`${API_URL}/getproduct/${item.product_id}`)
             );
             const productResults = await Promise.all(productPromises);
             setProducts(productResults.map((res) => res.data));
@@ -64,7 +69,7 @@ const Cart = () => {
   }
   useEffect(()=>{
     const myfun=async()=>{
-      const result=await Axios.post(`http://localhost:8011/buy`, buyProducts)
+      const result = await Axios.post(`${API_URL}/buy`, buyProducts)
       console.log("buyProducts = ", buyProducts)
       alert("Request sent for buy")
     }

@@ -7,6 +7,11 @@ import Footer2 from '../Components/Footer2'
 import Axios from 'axios'
 
 const Products = () => {
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
   const link=useNavigate()
   const location=useLocation()
   const [products, setProducts]=useState(null)
@@ -87,7 +92,7 @@ const Products = () => {
       if(cart!=undefined)
       {
         console.log("Cart = " , cart)
-        await Axios.post("http://localhost:8011/addtocart", cart)
+        await Axios.post(`${API_URL}/addtocart`, cart)
         alert("Product added to cart")
       }
     }
@@ -119,7 +124,7 @@ const Products = () => {
     const b=async ()=>{
       if(buyData.userPhone!=null)
       {
-        await Axios.post(`http://localhost:8011/buy`, buyData)
+        await Axios.post(`${API_URL}/buy`, buyData)
         alert("Request sent for buy.")
       }
       else if(buyData.userPhone==null && buyData.productsId!=null)

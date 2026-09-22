@@ -4,6 +4,11 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import Axios from 'axios'
 
 const Objects1 = () => {
+    const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8011"
+      : "https://zini-backend.vercel.app";
+
     const location = useLocation()
     const [search, setSearch] = useState()
     const link=useNavigate()
@@ -15,7 +20,7 @@ const Objects1 = () => {
     const showProducts = async (p) => {
         let s=p.replaceAll(" ", ",")
         setSearch(s)
-        const products = await Axios.get(`http://localhost:8011/showsearch/${s}`)
+        const products = await Axios.get(`${API_URL}/showsearch/${s}`)
         setData(products.data)
     }
     useEffect(() => {
