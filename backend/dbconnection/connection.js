@@ -1,6 +1,7 @@
-const mongoose=require("mongoose")
+require("dotenv").config();
 const dns = require("node:dns");
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
+const mongoose=require("mongoose")
 
 // mongoose.connect("mongodb://localhost:27017/rohit")
 mongoose

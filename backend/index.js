@@ -35,7 +35,7 @@ app.get("/signin/:mobile", async (req, res) => {
     }
 });
 
-const router = require("./router/route");
+const router = require("./router/route.js");
 app.use(router);
 
 module.exports = app;
