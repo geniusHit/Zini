@@ -65,7 +65,7 @@ const Kitchen = () => {
 
   return (
     <div className='d-flex justify-content-center my-3' style={{ width: "100%", minWidth: "1350px", backgroundColor: "#e8e8e8" }}>
-      <div className='mt-4 mb-4 mx-4 py-4 bg-white' style={{ width: "97%", margin: "auto", overflow: "hidden", position: "relative" }} onClick={()=>showProducts("kitchen")}>
+      <div className='mt-4 mb-4 mx-4 py-4 bg-white' style={{ width: "97%", margin: "auto", overflow: "hidden", position: "relative" }}>
         <button className='d-flex kitchenbtn justify-content-center align-items-center bg-secondary-emphasis px-2 py-3' style={{ border: "none", height: "100px", boxSizing: "border-box", position: "absolute", borderTopRightRadius: "3px", borderBottomRightRadius: "3px", top: "calc(50% - 50px)" }} ref={left} onClick={leftScroll}><FaChevronLeft /></button>
 
         <div className='fs-5 fw-bold mb-3 px-4'>Best Sellers in Home & Kitchen</div>
@@ -76,7 +76,7 @@ const Kitchen = () => {
             {
               KitchenApi.map((k, index) => {
                 return (
-                  <div className="float-start" key={index}>
+                  <div className="float-start" key={index} onClick={()=>showProducts("kitchen")}>
                     <img src={k} width="150px" height="200px"></img>
                   </div>
                 )

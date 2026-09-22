@@ -8,4 +8,4 @@ const adminSchema=mongoose.Schema({
     }
 })
 const adminModel=mongoose.model("admin", adminSchema)
-module.exports=adminModel 
+module.exports=adminModel

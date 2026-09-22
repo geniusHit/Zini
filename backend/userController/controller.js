@@ -139,7 +139,7 @@ exports.sendOTP = async (req, res)=>{
     const email=req.params.email
     const otp=Math.ceil(Math.random()*1000000)
 
-    const auth=nodemailer.createTransport({ 
+    const auth=nodemailer.createTransport({
         service:"gmail",
         secure:true,
         port:465,
