@@ -10,10 +10,7 @@ require("./dbconnection/connection");
 const signupModel = require("./models/signupSchema");
 const router = require("./router/route");
 
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
