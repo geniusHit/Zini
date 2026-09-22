@@ -1,20 +1,24 @@
 require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-
-const app = express();
-const port = process.env.PORT || 8011;
 require("./dbconnection/connection");
-const signupModel = require("./models/signupSchema");
-const router = require("./router/route");
+
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "ECommerce backend is working"
+    });
+});
+
+const port = process.env.PORT || 8011;
+const signupModel = require("./models/signupSchema");
+
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/signin/:mobile", async (req, res) => {
     try {
@@ -30,6 +34,9 @@ app.get("/signin/:mobile", async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
+
+const router = require("./router/route");
+app.use(router);
 
 module.exports = app;
 
