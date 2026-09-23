@@ -57,7 +57,6 @@ exports.uploadProduct=async (req, res) => {
 exports.showSearch=async (req, res)=>{
     try{
         let search=req.params.search
-        console.log("search = ", search)
         search=search.replaceAll(" &", "")
         search=search.replaceAll(" in", "")
         search=search.replaceAll(" of", "")

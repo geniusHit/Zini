@@ -41,7 +41,7 @@ const Navbar = (user) => {
   }
   useEffect(()=>{
     console.log("data from Navbar = ", data)
-    if(data.length>0)
+    if(data?.length>0)
       link("/products", {state : {...location.state, search:search, products:data }})
   }, [data])
 

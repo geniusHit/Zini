@@ -1,10 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import { IoIosMenu } from "react-icons/io";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaChevronDown } from "react-icons/fa";
-import Axios from 'axios'
 
 const Nav2 = () => {
   const API_URL =
@@ -24,14 +23,8 @@ const Nav2 = () => {
   }
 
   const location=useLocation()
-  const [data,setData]=useState()
+  const [data, setData]=useState()
   const [search, setSearch]=useState()
-  const showSearch=async (e)=>{
-    setSearch(e.currentTarget.id)
-    console.log("e.currentTarget.id = ", e.currentTarget.id)
-    const products=await fetch(`${API_URL}/showsearch/${e.currentTarget.id}`)
-    setData(products.data)
-  }
   const link=useNavigate()
 
   useEffect(()=>{
@@ -43,10 +36,12 @@ const Nav2 = () => {
 
   const [products2, setProducts2]=useState()
   const [search2, setSearch2]=useState()
-  const searchProducts=async (search)=>{
+  const searchProducts = async (search)=>{
     const result=await fetch(`${API_URL}/showsearch/${search}`)
+    const prods = await result.json()
+    console.log("prods : ", prods)
     setSearch2(search)
-    setProducts2(result.data)
+    setProducts2(prods)
   }
 
   useEffect(()=>{
@@ -63,17 +58,17 @@ const Nav2 = () => {
         <div className='ms-3 py-1 d-flex align-items-center fw-semibold justify-content-start text-capitalize' style={{fontSize:"12pt"}}>
             <div className='d-flex align-items-center out px-2 py-1' onClick={open} style={{height:"30px", cursor:"pointer"}}><IoIosMenu /><span>All</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="fresh"><span>Fresh</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("fresh")} id="fresh"><span>Fresh</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="bestSellers"><span>Best Sellers</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("best sellers")} id="bestSellers"><span>Best Sellers</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="todaysDeals"><span>Today's Deals</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("today deals")} id="todaysDeals"><span>Today's Deals</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="phone"><span>Phone</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("phone")} id="phone"><span>Phone</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="electronics"><span>Electronics</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("electronics")} id="electronics"><span>Electronics</span></div>
 
-            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={showSearch} id="home,kitchen"><span>Home & Kitchen</span></div>
+            <div className='d-flex align-items-center out px-2 py-1' style={{height:"30px", cursor:"pointer"}} onClick={()=>searchProducts("home,kitchen")} id="home,kitchen"><span>Home & Kitchen</span></div>
         </div>
       </nav>
 
