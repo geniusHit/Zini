@@ -36,8 +36,8 @@ app.get("/signin/:mobile", async (req, res) => {
 const router = require("./router/route.js");
 app.use(router);
 
-module.exports = app;
+// module.exports = app;
 
-// app.listen(port, () => {
-//     console.log(`Server is running on port: ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
