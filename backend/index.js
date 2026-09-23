@@ -18,8 +18,6 @@ app.get("/", (req, res) => {
 const port = process.env.PORT || 8011;
 const signupModel = require("./models/signupSchema");
 
-app.use(express.urlencoded({ extended: true }));
-
 app.get("/signin/:mobile", async (req, res) => {
     try {
         const mob = req.params.mobile;
