@@ -7,7 +7,7 @@ route.post("/signup", controller.signup)
 
 route.get("/signin/:email", controller.signin)
 
-route.get("/adminsignin", controller.admin_signin)
+route.post("/adminsignin", controller.admin_signin)
 
 route.post("/uploadproduct", controller.uploadProduct)
 

@@ -59,7 +59,7 @@ const Kitchen = () => {
   const showProducts = async (p) => {
     let s = p.replaceAll(" ", ",")
     setSearch(s)
-    const products = await Axios.get(`${API_URL}/showsearch/${s}`)
+    const products = await fetch(`${API_URL}/showsearch/${s}`)
     setData(products.data)
   }
   useEffect(() => {

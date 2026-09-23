@@ -29,7 +29,7 @@ const Nav2 = () => {
   const showSearch=async (e)=>{
     setSearch(e.currentTarget.id)
     console.log("e.currentTarget.id = ", e.currentTarget.id)
-    const products=await Axios.get(`${API_URL}/showsearch/${e.currentTarget.id}`)
+    const products=await fetch(`${API_URL}/showsearch/${e.currentTarget.id}`)
     setData(products.data)
   }
   const link=useNavigate()
@@ -44,7 +44,7 @@ const Nav2 = () => {
   const [products2, setProducts2]=useState()
   const [search2, setSearch2]=useState()
   const searchProducts=async (search)=>{
-    const result=await Axios.get(`${API_URL}/showsearch/${search}`)
+    const result=await fetch(`${API_URL}/showsearch/${search}`)
     setSearch2(search)
     setProducts2(result.data)
   }

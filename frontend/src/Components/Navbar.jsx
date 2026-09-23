@@ -35,7 +35,7 @@ const Navbar = (user) => {
     console.log("search from showSearch = ", search)
     if(search!=undefined)
     {
-      const products=await Axios.get(`${API_URL}/showsearch/${search}`)
+      const products=await fetch(`${API_URL}/showsearch/${search}`)
       setData(products.data)
     }
   }
@@ -66,14 +66,14 @@ const Navbar = (user) => {
         */
         if (lState?.email) {
           try {
-            const result = await Axios.get(
+            const result = await fetch(
               `${API_URL}/getcartinfo/${lState.email}`
             );
             setCartData(result.data);
 
             // Fetch product details for all items in the cart
             const productPromises = result.data.map((item) =>
-              Axios.get(`${API_URL}/getproduct/${item.product_id}`)
+              fetch(`${API_URL}/getproduct/${item.product_id}`)
             );
             const productResults = await Promise.all(productPromises);
             setProducts(productResults.map((res) => res.data));
