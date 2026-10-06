@@ -21,7 +21,9 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const result = await Axios.get(`${API_URL}/signin/${email}`)
+      const result = await Axios.post(`${API_URL}/signin`, {
+        email: email
+      })
       if (result && password == result.data.password) {
         console.log("result = ", result);
         setName(result.data.username)

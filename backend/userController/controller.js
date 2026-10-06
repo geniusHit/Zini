@@ -24,7 +24,7 @@ exports.signup=async (req, res)=>{
 }
 
 exports.signin=async (req, res)=>{
-    const email = req.params.email
+    const email = req.body.email
     const result=await signupModel.findOne({email:email})
     res.send(result)
 }
@@ -56,7 +56,7 @@ exports.uploadProduct=async (req, res) => {
 
 exports.showSearch=async (req, res)=>{
     try{
-        const search=req.params.search
+        let search=req.body.search
         console.log("search from showSearch : ", search)
         search=search.replaceAll(" &", "")
         search=search.replaceAll(" in", "")
@@ -92,7 +92,7 @@ exports.addToCart=async (req, res)=>{
 
 exports.getCartInfo=async (req, res)=>{
     try{
-        const email=req.params.email
+        const email=req.body.email
         const result=await cartModel.find({email:email})
         res.send(result)
     }
@@ -104,7 +104,7 @@ exports.getCartInfo=async (req, res)=>{
 
 exports.getProduct=async (req, res)=>{
     try{
-        const id=req.params.id
+        const id=req.body.id
         const result=await productsModel.findOne({_id:id})
         res.send(result)
     }
@@ -120,13 +120,13 @@ exports.buy=async (req, res)=>{
 }
 
 exports.getPassword=async (req, res)=>{
-    const mobile=req.params.mobile
-    const result=await signupModel.findOne({mobile:mobile})
+    const mobile=req.body.mobile
+    const result=await signupModel.findOne({mobile: mobile})
     res.send(result)
 }
 
 exports.changePassword=async (req, res)=>{
-    const mobile=req.params.mobile
+    const mobile=req.body.mobile
     const result=await signupModel.updateOne(
         {mobile:mobile}, 
         { $set:{password:req.body.password} }
@@ -136,7 +136,7 @@ exports.changePassword=async (req, res)=>{
 }
 
 exports.sendOTP = async (req, res)=>{
-    const email=req.params.email
+    const email=req.body.email
     const otp=Math.ceil(Math.random()*1000000)
 
     const auth=nodemailer.createTransport({

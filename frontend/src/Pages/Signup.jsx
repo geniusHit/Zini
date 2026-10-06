@@ -28,13 +28,13 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const sendotp = await Axios.get(`${API_URL}/sendotp/${email}`)
-    // navigate("/checkotp", {state:{...location.state, name:username, email:email, password:password}})
+    const sendotp = await Axios.post(`${API_URL}/sendotp`, {
+      email: email
+    })
     otpinput.current.removeAttribute("disabled")
     verifybtn.current.style.display = "none"
     signupbtn.current.style.display = "block"
 
-    // setRealOtp(sendotp.data.otp)
     console.log("sendotp.data.otp = ", sendotp.data.otp)
     setRealOtp(sendotp.data.otp)
   }
